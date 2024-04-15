@@ -1,0 +1,183 @@
+
+# Makefile generated automatically by scripts/mkcxx.pl '-f' '-s' '-1' '-r' '-8' '-IPU14' '-l' '-LPU14 -lPU14 -lz'
+# run 'make make' to update it if you add new files
+
+CXX = g++  # for macs - otherwise get c++ = clang
+CXXFLAGS = -Wall -g -O2
+
+# also arrange for fortran support
+FC = gfortran
+FFLAGS = -Wall -O2
+CXXFLAGS += -std=c++11
+LDFLAGS += -std=c++11
+
+FJCONFIG = /home/pieter/software/fastjet-3.4.2/../fastjet342-install/bin/fastjet-config
+FJLOC = /home/pieter/software/fastjet-3.4.2/../fastjet342-install
+
+INCLUDE += `$(FJCONFIG) --cxxflags`
+LIBRARIES  += -L$(FJLOC)/lib -lRecursiveTools `$(FJCONFIG) --libs --plugins` -lfastjetcontribfragile
+
+PYTHIA8LOCATION = /home/pieter/software/pythia8310
+INCLUDE += -I$(PYTHIA8LOCATION)/include
+LIBRARIES  += -L$(PYTHIA8LOCATION)/lib -Wl,-rpath,$(PYTHIA8LOCATION)/lib -lpythia8 -ldl
+LIBRARIES += -L/usr/lib/x86_64-linux-gnu -lgsl -lgslcblas -lm
+
+INCLUDE += -I/usr/include
+
+
+INCLUDE += `root-config --cflags`
+LIBRARIES  += `root-config --glibs`
+INCLUDE += $(LCLINCLUDE)
+
+COMMONSRC = 
+F77SRC = 
+COMMONOBJ = 
+
+PROGSRC = code_Bas.cc filecreater.cc new_code.cc new_code2.cc POWHEG_Pythia.cc runConstituentSubtraction.cc runConversionQPYTHIA.cc runCreatePythiaEvents.cc RunCreatePythiaEvents2.0.cc runCreatePythiaEventsPartonLevel.cc runCreatePythiaEventsWJet.cc runCreatePythiaPhotonEvents.cc runCreatePythiaPowhegEvents.cc runCreatePythiaPowhegplot.cc runCreateThermalEvents.cc runCreateVinciaEvents.cc runCSVariations.cc runFromFile.cc runGluonSplittingAnalysis.cc runHardKtVLE.cc runHardKtVLEBkg.cc runHardKtVLEJewel.cc runHybridJetAnalysis.cc runJetCharge.cc runJetChargeQCDAware.cc runJetPerformance.cc runJetProfile.cc runJewelSub.cc runMiguelsVariablesBkg.cc runSDGenVarious.cc runSDGenVariousJewelSub.cc runSharedLayerSubtraction.cc runSimpleJetAnalysis.cc runSoftDrop.cc runSubjetFF.cc runtest.cc runTimeClus.cc runTimeClusBkg.cc
+PROGOBJ = code_Bas.o filecreater.o new_code.o new_code2.o POWHEG_Pythia.o runConstituentSubtraction.o runConversionQPYTHIA.o runCreatePythiaEvents.o RunCreatePythiaEvents2.0.o runCreatePythiaEventsPartonLevel.o runCreatePythiaEventsWJet.o runCreatePythiaPhotonEvents.o runCreatePythiaPowhegEvents.o runCreatePythiaPowhegplot.o runCreateThermalEvents.o runCreateVinciaEvents.o runCSVariations.o runFromFile.o runGluonSplittingAnalysis.o runHardKtVLE.o runHardKtVLEBkg.o runHardKtVLEJewel.o runHybridJetAnalysis.o runJetCharge.o runJetChargeQCDAware.o runJetPerformance.o runJetProfile.o runJewelSub.o runMiguelsVariablesBkg.o runSDGenVarious.o runSDGenVariousJewelSub.o runSharedLayerSubtraction.o runSimpleJetAnalysis.o runSoftDrop.o runSubjetFF.o runtest.o runTimeClus.o runTimeClusBkg.o
+
+INCLUDE += 
+LIBRARIES += -LPU14 -lPU14 -lz
+
+
+all:  code_Bas filecreater new_code new_code2 POWHEG_Pythia runConstituentSubtraction runConversionQPYTHIA runCreatePythiaEvents RunCreatePythiaEvents2.0 runCreatePythiaEventsPartonLevel runCreatePythiaEventsWJet runCreatePythiaPhotonEvents runCreatePythiaPowhegEvents runCreatePythiaPowhegplot runCreateThermalEvents runCreateVinciaEvents runCSVariations runFromFile runGluonSplittingAnalysis runHardKtVLE runHardKtVLEBkg runHardKtVLEJewel runHybridJetAnalysis runJetCharge runJetChargeQCDAware runJetPerformance runJetProfile runJewelSub runMiguelsVariablesBkg runSDGenVarious runSDGenVariousJewelSub runSharedLayerSubtraction runSimpleJetAnalysis runSoftDrop runSubjetFF runtest runTimeClus runTimeClusBkg 
+
+
+code_Bas: code_Bas.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+filecreater: filecreater.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+new_code: new_code.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+new_code2: new_code2.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+POWHEG_Pythia: POWHEG_Pythia.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runConstituentSubtraction: runConstituentSubtraction.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runConversionQPYTHIA: runConversionQPYTHIA.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCreatePythiaEvents: runCreatePythiaEvents.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+RunCreatePythiaEvents2.0: RunCreatePythiaEvents2.0.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCreatePythiaEventsPartonLevel: runCreatePythiaEventsPartonLevel.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCreatePythiaEventsWJet: runCreatePythiaEventsWJet.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCreatePythiaPhotonEvents: runCreatePythiaPhotonEvents.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCreatePythiaPowhegEvents: runCreatePythiaPowhegEvents.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCreatePythiaPowhegplot: runCreatePythiaPowhegplot.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCreateThermalEvents: runCreateThermalEvents.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCreateVinciaEvents: runCreateVinciaEvents.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runCSVariations: runCSVariations.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runFromFile: runFromFile.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runGluonSplittingAnalysis: runGluonSplittingAnalysis.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runHardKtVLE: runHardKtVLE.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runHardKtVLEBkg: runHardKtVLEBkg.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runHardKtVLEJewel: runHardKtVLEJewel.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runHybridJetAnalysis: runHybridJetAnalysis.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runJetCharge: runJetCharge.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runJetChargeQCDAware: runJetChargeQCDAware.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runJetPerformance: runJetPerformance.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runJetProfile: runJetProfile.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runJewelSub: runJewelSub.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runMiguelsVariablesBkg: runMiguelsVariablesBkg.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runSDGenVarious: runSDGenVarious.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runSDGenVariousJewelSub: runSDGenVariousJewelSub.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runSharedLayerSubtraction: runSharedLayerSubtraction.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runSimpleJetAnalysis: runSimpleJetAnalysis.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runSoftDrop: runSoftDrop.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runSubjetFF: runSubjetFF.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runtest: runtest.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runTimeClus: runTimeClus.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+runTimeClusBkg: runTimeClusBkg.o  $(COMMONOBJ)
+	$(CXX) $(LDFLAGS) -o $@ $@.o $(COMMONOBJ) $(LIBRARIES)
+
+
+make:
+	scripts/mkcxx.pl '-f' '-s' '-1' '-r' '-8' '-IPU14' '-l' '-LPU14 -lPU14 -lz'
+
+clean:
+	rm -vf $(COMMONOBJ) $(PROGOBJ)
+
+realclean: clean
+	rm -vf  code_Bas filecreater new_code new_code2 POWHEG_Pythia runConstituentSubtraction runConversionQPYTHIA runCreatePythiaEvents RunCreatePythiaEvents2.0 runCreatePythiaEventsPartonLevel runCreatePythiaEventsWJet runCreatePythiaPhotonEvents runCreatePythiaPowhegEvents runCreatePythiaPowhegplot runCreateThermalEvents runCreateVinciaEvents runCSVariations runFromFile runGluonSplittingAnalysis runHardKtVLE runHardKtVLEBkg runHardKtVLEJewel runHybridJetAnalysis runJetCharge runJetChargeQCDAware runJetPerformance runJetProfile runJewelSub runMiguelsVariablesBkg runSDGenVarious runSDGenVariousJewelSub runSharedLayerSubtraction runSimpleJetAnalysis runSoftDrop runSubjetFF runtest runTimeClus runTimeClusBkg 
+
+.cc.o:         $<
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
+.cpp.o:         $<
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
+.C.o:         $<
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
+.f.o:         $<
+	$(FC) $(FFLAGS) -c $< -o $@
+.f90.o:         $<
+	$(FC) $(FFLAGS) -c $< -o $@
+
+
+depend:
+	makedepend  $(LCLINCLUDE) -Y --   -- $(COMMONSRC) $(PROGSRC)
